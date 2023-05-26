@@ -16,8 +16,8 @@
 <body>
     <h1>PAGINA DE SELEÇÃO</h1>
 
-    <form action="parts/form.php">
-    <input type="submit" class="btn" value="Cadastro" />
+    <form action="parts/cadastroCivis.php">
+    <input type="submit" class="btn" value="Cadastro de Civís" />
 </form> <br><br>
 <form action="parts/registro.php">
     <input type="submit" class="btn" value="Registro" />

@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     // redirecionar para a página de registro ou exibir mensagem de sucesso;
-    header("Location: registro.php");
+	echo '<script> alert ("Alterado com sucesso!"); location.href=("cadastroCivis.php")</script>';
     exit();
 }
 ?>

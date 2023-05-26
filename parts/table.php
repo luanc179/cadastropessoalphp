@@ -1,6 +1,6 @@
 <?php
 include_once "conexao.php";
-include_once "registro.php";
+
 
 if (isset($_POST["cadastrar"])) :
     $nome = $_POST["nome"];
@@ -18,7 +18,7 @@ if (isset($_POST["cadastrar"])) :
 
 
     $stmt->execute();
-    echo '<script> alert ("Cadastrado com sucesso!"); location.href=("../index.php")</script>';
+    echo '<script> alert ("Cadastrado com sucesso!"); location.href=("./cadastroCivis.php")</script>';
     $stmt->close();
     $conn->close();
 
