@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Controle de Entrada e Saída</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding-bottom: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    form input[type=text], form input[type=date], form input[type=time] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    form input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    table th, table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .print-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .actions {
+      text-align: center;
+    }
+    
+    .actions button {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    @media print {
+      form {
+        display: none;
+      }
+      
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Controle de Entrada e Saída</h1>
+
+  <form id="entryForm">
+    <label for="identity">Identidade:</label>
+    <input type="text" id="identity" name="identity" required>
+
+    <label for="post">Posto:</label>
+    <input type="text" id="post" name="post" required>
+
+    <label for="fullName">Nome Completo:</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="vehicle">Veículo:</label>
+    <input type="text" id="vehicle" name="vehicle" required>
+
+    <label for="licensePlate">Placa do Veículo:</label>
+    <input type="text" id="licensePlate" name="licensePlate" required>
+
+    <label for="entryDate">Data de Entrada:</label>
+    <input type="date" id="entryDate" name="entryDate" required>
+
+    <label for="entryTime">Horário de Entrada:</label>
+    <input type="time" id="entryTime" name="entryTime" required>
+
+    <input type="submit" value="Registrar Entrada">
+  </form>
+
+  <table id="logTable">
+    <tr>
+      <th>Identidade</th>
+      <th>Posto</th>
+      <th>Nome Completo</th>
+      <th>Veículo</th>
+      <th>Placa do Veículo</th>
+      <th>Data de Entrada</th>
+      <th>Horário de Entrada</th>
+      <th>Horário de Saída</th>
+      <th>Ações</th>
+    </tr>
+  </table>
+
+  <div class="print-button">
+    <button onclick="printReport()">Imprimir Relatório</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script>
+    document.getElementById('entryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var identity = document.getElementById('identity').value;
+      var post = document.getElementById('post').value;
+      var fullName = document.getElementById('fullName').value;
+      var vehicle = document.getElementById('vehicle').value;
+      var licensePlate = document.getElementById('licensePlate').value;
+      var entryDate = document.getElementById('entryDate').value;
+      var entryTime = document.getElementById('entryTime').value;
+
+      var table = document.getElementById('logTable');
+      var row = table.insertRow(-1);
+      var identityCell = row.insertCell(0);
+      var postCell = row.insertCell(1);
+      var fullNameCell = row.insertCell(2);
+      var vehicleCell = row.insertCell(3);
+      var licensePlateCell = row.insertCell(4);
+      var entryDateCell = row.insertCell(5);
+      var entryTimeCell = row.insertCell(6);
+      var exitTimeCell = row.insertCell(7);
+      var actionsCell = row.insertCell(8);
+
+      identityCell.innerHTML = identity;
+      postCell.innerHTML = post;
+      fullNameCell.innerHTML = fullName;
+      vehicleCell.innerHTML = vehicle;
+      licensePlateCell.innerHTML = licensePlate;
+      entryDateCell.innerHTML = entryDate;
+      entryTimeCell.innerHTML = entryTime;
+      exitTimeCell.innerHTML = '-';
+      actionsCell.innerHTML = '<button onclick="editEntry(this)">Alterar</button> <button onclick="deleteEntry(this)">Excluir</button>';
+
+      document.getElementById('entryForm').reset();
+    });
+
+    function editEntry(button) {
+      var row = button.parentNode.parentNode;
+      var exitTimeCell = row.cells[7];
+      var actionsCell = row.cells[8];
+
+      var exitTimeInput = document.createElement('input');
+      exitTimeInput.type = 'time';
+      exitTimeInput.className = 'exit-time-input';
+      exitTimeInput.value = exitTimeCell.innerText;
+      exitTimeCell.innerHTML = '';
+      exitTimeCell.appendChild(exitTimeInput);
+
+      var saveButton = document.createElement('button');
+      saveButton.textContent = 'Salvar';
+      saveButton.onclick = function() {
+        exitTimeCell.innerHTML = exitTimeInput.value;
+        actionsCell.innerHTML = '<button onclick="editEntry(this)">Alterar</button> <button onclick="deleteEntry(this)">Excluir</button>';
+      };
+
+      var cancelButton = document.createElement('button');
+      cancelButton.textContent = 'Cancelar';
+      cancelButton.onclick = function() {
+        exitTimeCell.innerHTML = '-';
+        actionsCell.innerHTML = '<button onclick="editEntry(this)">Alterar</button> <button onclick="deleteEntry(this)">Excluir</button>';
+      };
+
+      actionsCell.innerHTML = '';
+      actionsCell.appendChild(saveButton);
+      actionsCell.appendChild(cancelButton);
+    }
+
+    function deleteEntry(button) {
+      var row = button.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+    }
+
+    function printReport() {
+      var doc = new jsPDF();
+      var table = document.getElementById('logTable');
+      var rows = table.getElementsByTagName('tr');
+      var rowData = [];
+
+      for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName('td');
+        var rowDataItem = [];
+
+        for (var j = 0; j < cells.length - 1; j++) {
+          rowDataItem.push(cells[j].innerText);
+        }
+
+        rowData.push(rowDataItem);
+      }
+
+      doc.autoTable({
+        head: [['Identidade', 'Posto', 'Nome Completo', 'Veículo', 'Placa do Veículo', 'Data de Entrada', 'Horário de Entrada', 'Horário de Saída']],
+        body: rowData
+      });
+
+      doc.save('relatorio.pdf');
+    }
+  </script>
+</body>
+</html>
