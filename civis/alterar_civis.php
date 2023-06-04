@@ -80,11 +80,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<input type="text" name="nomeguerra" value="<?php echo $dado['nomeguerra'] ?>" required><br>
 		<label for="destino">Destino:</label><br>
 		<input type="text" name="destino" value="<?php echo $dado['destino'] ?>" required><br>		
+		<a href="../index.php"><button type="button">Voltar</button></a>
 		<input type="submit" value="Salvar">
 	</form>
 	<br>
-	<form action="./cadastroCivis.php">
-		<input type="submit" value="Voltar" />
-	</form>
 </body>
 </html>

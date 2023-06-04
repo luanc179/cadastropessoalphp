@@ -40,8 +40,8 @@
      </div><br>
 
      <div class="form-group">
-       <label for="nome2">Nome completo:</label>
-       <input type="text" name="nome2" id="nome2" required>
+       <label for="nome">Nome completo:</label>
+       <input type="text" name="nome" id="nome" required>
      </div><br>
 
      <div class="form-group">
@@ -56,11 +56,11 @@
 
      <div class="form-group">
 
-       <label for="entrada2">Entrada:</label>
-       <input type="time" name="entrada2" id="entrada2" required>
+       <label for="entrada">Entrada:</label>
+       <input type="time" name="entrada" id="entrada" required>
 
-       <label for="saida2">Saida:</label>
-       <input type="time" name="saida2" id="saida2">
+       <label for="saida">Saida:</label>
+       <input type="time" name="saida" id="saida">
 
      </div>
 
@@ -75,8 +75,8 @@
      </div><br>
 
      <div class="form-group">
-       <label for="post2">Falar com:</label>
-       <select name="post2">
+       <label for="post">Falar com:</label>
+       <select name="post">
          <option value="Post/Grad">Posto/Grad</option>
          <option value="Cel">Cel</option>
          <option value="Ten Cel">Ten Cel</option>
@@ -97,13 +97,13 @@
      </div><br>
 
      <div class="form-group">
-       <label for="nomeguerra2">Nome de Guerra:</label>
-       <input type="text" name="nomeguerra2" id="nomeguerra2" required>
+       <label for="nomeguerra">Nome de Guerra:</label>
+       <input type="text" name="nomeguerra" id="nomeguerra" required>
      </div>
 
      <div class="form-group">
-       <label for="destino2">Destino:</label>
-       <select name="destino2">
+       <label for="destino">Destino:</label>
+       <select name="destino">
          <option value="Selecionar">Selecionar</option>
          <option value="Cmdo">Cmdo</option>
          <option value="Adj CMDO">Adj Cmdo</option>
@@ -137,17 +137,15 @@
        </select>
      </div><br>
 
-     <form id="cadastrar2" action="table_milOOM.php">
-       <input type="submit" name="cadastrar2" id="cadastrar2" value="Cadastrar" />
+     <form id="cadastrar" action="./table_milOOM.php">
+     <a href="../index.php"><button type="button">Voltar</button></a>  
+     <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" />
      </form>
    </form>
-   <form id="btn-voltar" action="../index.php">
-     <input type="submit" class="btn" value="Voltar" />
-   </form>
    <?php
-    $consulta2 = "SELECT * FROM cadastro.miloom;";
+    $consulta = "SELECT * FROM cadastro.miloom;";
 
-    $con = $conn->query($consulta2) or die($mysqli->error);
+    $con = $conn->query($consulta) or die($mysqli->error);
 
     ?>
    <div>
@@ -179,12 +177,12 @@
            <?php $dado['id']; ?>
            <td>
              <form action="excluir_milOOM.php" method="get">
-               <input type="submit" class="btn-excluir" name="excluir2" id="excluir2" value="Excluir" />
+               <input type="submit" class="btn-excluir" name="excluir" id="excluir" value="Excluir" />
                <input type="hidden" name="id" value="<?php echo $dado['id']; ?>" />
              </form>
              <form action="./alterar_milOOM.php" method="get">
                <input type="hidden" name="id" value="<?php echo $dado['id']; ?>" />
-               <input type="submit" class="btn-alterar" name="alterar2" id="alterar2" value="Alterar" />
+               <input type="submit" class="btn-alterar" name="alterar" id="alterar" value="Alterar" />
              </form>
            </td>
            </td>

@@ -14,7 +14,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
- 
+
 --
 -- Table structure for table `civis`
 --
@@ -36,7 +36,7 @@ CREATE TABLE `civis` (
   `destino` varchar(50) DEFAULT NULL,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `civis` (
 
 LOCK TABLES `civis` WRITE;
 /*!40000 ALTER TABLE `civis` DISABLE KEYS */;
-INSERT INTO `civis` VALUES ('FLAVINHA SIMOES',4,'RG','09090909','14:48:00','00:00:00','Honda','HLT3513','3º Sgt','Simões','Sec Info',1),('arroz e feijao',4,'RG','12411135','18:07:00','18:09:00','Honda','PVS2054','Past/Grad','Simões','Set Fin',5);
+INSERT INTO `civis` VALUES ('FLAVINHA SIMOES',4,'RG','09090909','14:48:00','00:00:00','Honda','HLT3513','3º Sgt','Simões','Sec Info',1),('arroz e feijao',4,'RG','12411135','18:07:00','18:09:00','Honda','PVS2054','Past/Grad','Simões','Set Fin',5),('Joao maria jose',9,'CPF','1234567890','08:54:00','00:00:00','Honda','PVS2054','Cb','Guerson','Enc Mat CCAp',6);
 /*!40000 ALTER TABLE `civis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,18 +59,18 @@ DROP TABLE IF EXISTS `miloom`;
 CREATE TABLE `miloom` (
   `id` int NOT NULL AUTO_INCREMENT,
   `post_vis` varchar(10) DEFAULT NULL,
-  `nome` varchar(50) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL,
   `idtmil` int DEFAULT NULL,
-  `om` varchar(30) DEFAULT NULL,
+  `om` varchar(50) DEFAULT NULL,
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
-  `vtr` varchar(20) DEFAULT NULL,
+  `vtr` varchar(30) DEFAULT NULL,
   `eb_placa` varchar(15) DEFAULT NULL,
   `post` varchar(50) DEFAULT NULL,
   `nomeguerra` varchar(50) DEFAULT NULL,
   `destino` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `miloom` (
 
 LOCK TABLES `miloom` WRITE;
 /*!40000 ALTER TABLE `miloom` DISABLE KEYS */;
-INSERT INTO `miloom` VALUES (1,'Cap','Luan',404040404,'blog','10:30:00','11:00:00','aTEGO','RTF3443','sGT','SIMOES','SEC INFO');
+INSERT INTO `miloom` VALUES (1,'Cap','Luan',404040404,'blog','10:30:00','11:00:00','aTEGO','RTF3443','sGT','SIMOES','SEC INFO'),(2,'Cap','arroz e feijao',235,'23','17:29:00','00:00:00','Atego','PVS5050','Cel','Simões','Sgte CCAp'),(3,'Ten Cel','Luan',32421,'17º Batalhão Logístico Leve de Montanha ','17:32:00','00:00:00','Atego','1412412412','Ten Cel','Simões','Cmt CCAp');
 /*!40000 ALTER TABLE `miloom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-28 19:59:04
+-- Dump completed on 2023-06-04 17:35:36

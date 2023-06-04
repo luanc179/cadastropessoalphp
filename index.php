@@ -15,19 +15,13 @@
 
  <body>
      <h1>PAGINA DE SELEÇÃO</h1>
-
-     <form action="./civis/cadastroCivis.php">
-         <input type="submit" class="btn" value="Cadastro de Civís" />
-     </form> <br><br>
-
-     <form action="./milOOM/cadastro_milOOM.php">
-         <input type="submit" class="btn" value="Cadastro de Militares de outras Om" />
-     </form> <br><br>
-
-     <form action="parts/registro.php">
-         <input type="submit" class="btn" value="Registro" />
-     </form>
-
+     <center>
+     <a href="./civis/cadastroCivis.php"><button type="button">Cadastro de Civís</button></a>
+     <br><br>
+     <a href="./milOOM/cadastro_milOOM.php"><button type="button">Cadastro de Militares de outras Om</button></a>
+     <br><br>
+     <a href="./registo/registro.php"><button type="button">Registro</button></a>
+     </center>
  </body>
 
  </html>

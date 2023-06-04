@@ -128,12 +128,11 @@
 
 
      <form id="cadastrar" action="table.php">
-       <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" />
+     <a href="../index.php"><button type="button">Voltar</button></a>  
+     <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" />
      </form>
    </form>
-   <form id="btn-voltar" action="../index.php">
-     <input type="submit" class="btn" value="Voltar"/>
-   </form>
+   
    <?php
     $consulta = "SELECT * FROM civis;";
 

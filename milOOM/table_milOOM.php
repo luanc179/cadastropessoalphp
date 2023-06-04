@@ -1,27 +1,27 @@
 <?php
   include_once "../connect/conexaocasa.php";
 
-if (isset($_POST["cadastrar2"])) :
+if (isset($_POST["cadastrar"])) :
     $post_vis = $_POST["post_vis"];
-    $nome = $_POST["nome2"];
+    $nome = $_POST["nome"];
     $idtmil = $_POST["idtmil"];
     $om = $_POST["om"];
-    $entrada = $_POST["entrada2"];
-    $saida = $_POST["saida2"];
+    $entrada = $_POST["entrada"];
+    $saida = $_POST["saida"];
     $vtr = $_POST["vtr"];
     $eb_placa = $_POST["eb_placa"];
-    $post = $_POST["post2"];
-    $nomeguerra = $_POST["nomeguerra2"];
-    $destino = $_POST["destino2"];
+    $post = $_POST["post"];
+    $nomeguerra = $_POST["nomeguerra"];
+    $destino = $_POST["destino"];
 
-    $stmt2 = $conn->prepare("INSERT INTO cadastro.miloom
+    $stmt = $conn->prepare("INSERT INTO cadastro.miloom
    (post_vis, nome, idtmil, om, entrada, saida, vtr, eb_placa, post, nomeguerra, destino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt2->bind_param("sssssssssss", $post_vis, $nome,  $idtmil ,$om, $entrada, $saida, $vtr, $eb_placa, $post, $nomeguerra, $destino);
+    $stmt->bind_param("ssissssssss", $post_vis, $nome,  $idtmil ,$om, $entrada, $saida, $vtr, $eb_placa, $post, $nomeguerra, $destino);
 
 
-    $stmt2->execute();
+    $stmt->execute();
     echo '<script> alert ("Cadastrado com sucesso!"); location.href=("./cadastro_milOOM.php")</script>';
-    $stmt2->close();
+    $stmt->close();
     $conn->close();
 
 endif;
