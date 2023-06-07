@@ -128,7 +128,7 @@
 
 
      <form id="cadastrar" action="table.php">
-     <a href="../index.php"><button type="button">Voltar</button></a>  
+     <a href="../home.php"><button type="button">Voltar</button></a>  
      <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" />
      </form>
    </form>

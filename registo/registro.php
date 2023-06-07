@@ -83,7 +83,7 @@
    </div>
      <button class="print-button" onclick="window.print()">Imprimir</button>
  
-     <a href="../index.php"><button type="button">Voltar</button></a>
+     <a href="../home.php"><button type="button">Voltar</button></a>
     
 
 </body>

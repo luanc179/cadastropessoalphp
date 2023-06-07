@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
+$servername = "banco";
 $database = "cadastro";
 $username = "root";
-$password = "17@L0g1st1c@";
+$password = "12345";
 $port = 3306;
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database, $port);

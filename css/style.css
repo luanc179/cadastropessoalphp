@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url('../img/fundo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
   
   h1 {
@@ -12,7 +15,7 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding-bottom: 10px;
-    background-color: #ffffff;
+    background-color: #8cc98e;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
